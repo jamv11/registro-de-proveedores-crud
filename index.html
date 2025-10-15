@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de Proveedores - CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-light" >
+    <header class="mt-5 mb-5">
+        <h1 class="text-center">Registro de Proveedores</h1>
+    </header>
+    <main>
+        
+        <!-- Tabla de registros -->
+        <div class="m-5 p-5 d-flex justify-content-evenly  rounded">
+            <canvas id="myChart" class=" w-25 h-25  p-5 bg-primary-subtle rounded"></canvas>
+        </div>
+        <section class="m-5 p-3 border  border-info bg-info-subtle rounded">
+            <div class="mt-2 mb-3 d-flex justify-content-end row">
+                <div class="col-sm-2">
+                    <input id="buscar" class="me-3 form-control" type="text" placeholder="Buscar">
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formCrearUsuario">Crear</button>
+                </div>
+            </div>
+            <table class="table table-primary table-striped table-hover border border-2 border-secondary">
+                <thead class="table-dark">
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Correo Electrónico</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Sitio Web</th>
+                        <th>Compañia</th>
+                        <th>Acción</th>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </section>
+
+        <!-- Modal para crear un Usuario -->
+        <div class="modal fade" id="formCrearUsuario"  aria-labelledby="miModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header bg-dark text-light" data-bs-theme="dark">
+                <h5 class="modal-title" id="miModalLabel">Crear Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body ">
+                <form id="formularioCrear" class="row">
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="usuario">Nombre de Usuario:</label>
+                        <input id="usuario" class="form-control" type="text">
+                        <span id="msjUsuario"></span>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="usuario">Nombre:</label>
+                        <input id="nombre" class="form-control" type="text">
+                        <span id="msjNombre"></span>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label class="form-label" for="usuario">Correo Electrónico:</label>
+                        <input id="email" class="form-control" type="text">
+                        <span id="msjEmail"></span>
+                    </div>
+                    <div class="mb-3 col-12"> 
+                        <label class="form-label" for="usuario">Dirección:</label>
+                        <div class="row">
+                            <div class="col-3">
+                                <input id="dirCiudad" class="form-control" type="text" placeholder="Ciudad">
+                            </div>
+                            <div class="col-3">
+                                <input id="dirCalle" class="form-control" type="text" placeholder="Calle">
+                            </div>
+                            <div class="col-3">
+                                <input id="dirHabitacion" class="form-control" type="text" placeholder="Habitación">
+                            </div>
+                            <div class="col-3">
+                                <input id="dirCodigoPostal" class="form-control" type="text" placeholder="Codigo Postal">
+                                <span id="msjCodigoPostal"></span>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="usuario">Teléfono:</label>
+                        <input id="telefono" class="form-control" type="text">
+                        <span id="msjTelefono"></span>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label class="form-label" for="usuario">Sitio WEB:</label>
+                        <input id="sitioWeb" class="form-control" type="text">
+                        <span id="msjSitioWeb"></span>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label class="form-label" for="usuario">Compañia:</label>
+                        <input id="compania" class="form-control" type="text">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-between bg-body-secondary">
+                <span id="msjForm" class="text-success fw-semibold"></span>
+                <button id="btnRegistrar" type="button" class="btn btn-primary" >Registrar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Modal para modificar usuario -->
+        <div class="modal fade" id="formModificarUsuario" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg"></div>
+        </div>
+        <!-- Modal para confirmar eliminación de usuario -->
+         <div class="modal fade" id="modalEliminarUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog"></div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="./js/script.js" type="module"></script>
+  </body>
+</html>

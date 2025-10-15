@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    min-width: 1500px;
+
+}
+section{
+height: 100%;
+}
+
+/* #myChart{
+    min-width: 20%;
+    max-height: 50%;
+}
+
+#myChart2{
+    min-width: 20%;
+    max-height: 50%;
+} */
+
