@@ -14,18 +14,18 @@ export const buscar = () =>{
             tBody.innerHTML ='';
             datosFiltrados.forEach(datos =>{
                         tBody.innerHTML +=`
-                                    <tr>
-                                        <td>${datos.id}</td>
-                                        <td>${datos.username}</td>
-                                        <td>${datos.name}</td>
-                                        <td>${datos.email}</td>
-                                        <td>${datos.address.city}, ${datos.address.street}, ${datos.address.suite}, ${datos.address.zipcode}</td>
-                                        <td>${datos.phone}</td>
-                                        <td>${datos.website}</td>
-                                        <td>${datos.company.name}</td>
-                                        <td>
-                                        <button id="${datos.id}" type="button" class="btn btn-warning btnModificar" data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
-                                        <button id="${datos.id}" type="button" class="btn btn-danger btnEliminar" data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
+                                    <tr class="column">
+                                        <td class="col-1">${datos.id}</td>
+                                        <td class="col-1">${datos.username}</td>
+                                        <td class="col-1">${datos.name}</td>
+                                        <td class="col-1">${datos.email}</td>
+                                        <td class="col-3">${datos.address.city}, ${datos.address.street}, ${datos.address.suite}, ${datos.address.zipcode}</td>
+                                        <td class="col-1">${datos.phone}</td>
+                                        <td class="col-1">${datos.website}</td>
+                                        <td class="col-1">${datos.company.name}</td>
+                                        <td class="col-2">
+                                        <button id="${datos.id}" type="button" class="btn btn-warning btnModificar " data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
+                                        <button id="${datos.id}" type="button" class="btn btn-danger btnEliminar " data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
                                         </td>
                                     </tr> 
             `;

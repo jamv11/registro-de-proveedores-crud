@@ -20,17 +20,17 @@ export const typeCodeApi = async () =>{
         
         datosEnLocal.forEach((registro) =>{
             tBody.innerHTML +=`
-                            <tr>
-                                <td>${registro.id}</td>
-                                <td>${registro.username}</td>
-                                <td>${registro.name}</td>
-                                <td>${registro.email}</td>
-                                <td>${registro.address.city}, ${registro.address.street}, ${registro.address.suite}, ${registro.address.zipcode}</td>
-                                <td>${registro.phone}</td>
-                                <td>${registro.website}</td>
-                                <td>${registro.company.name}</td>
-                                <td class="d-flex justify-content-center flex-wrap">
-                                    <button id="${registro.id}"  type="button" class="btn btn-warning btnModificar m-1" data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
+                            <tr class="column">
+                                <td class="col-1">${registro.id}</td>
+                                <td class="col-1">${registro.username}</td>
+                                <td class="col-1">${registro.name}</td>
+                                <td class="col-1">${registro.email}</td>
+                                <td class="col-3">${registro.address.city}, ${registro.address.street}, ${registro.address.suite}, ${registro.address.zipcode}</td>
+                                <td class="col-1">${registro.phone}</td>
+                                <td class="col-1">${registro.website}</td>
+                                <td class="col-1">${registro.company.name}</td>
+                                <td class="class="col-2">
+                                    <button id="${registro.id}"  type="button" class="btn btn-warning btnModificar m-1 " data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
                                     <button id="${registro.id}" type="button" class="btn btn-danger btnEliminar m-1" data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
                                 </td>
                                 </tr> 
