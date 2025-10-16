@@ -12,13 +12,12 @@ section{
 height: 100%;
 }
 
-/* #myChart{
-    min-width: 20%;
-    max-height: 50%;
+@media screen and (max-width: 1024px){
+.container-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2;
+}    
 }
-
-#myChart2{
-    min-width: 20%;
-    max-height: 50%;
-} */
-

@@ -29,9 +29,9 @@ export const typeCodeApi = async () =>{
                                 <td>${registro.phone}</td>
                                 <td>${registro.website}</td>
                                 <td>${registro.company.name}</td>
-                                <td>
-                                    <button id="${registro.id}"  type="button" class="btn btn-warning btnModificar" data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
-                                    <button id="${registro.id}" type="button" class="btn btn-danger btnEliminar" data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
+                                <td class="d-flex justify-content-center flex-wrap">
+                                    <button id="${registro.id}"  type="button" class="btn btn-warning btnModificar m-1" data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
+                                    <button id="${registro.id}" type="button" class="btn btn-danger btnEliminar m-1" data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
                                 </td>
                                 </tr> 
                         `;
