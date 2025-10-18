@@ -24,8 +24,10 @@ export const buscar = () =>{
                                         <td class="col-1">${datos.website}</td>
                                         <td class="col-1">${datos.company.name}</td>
                                         <td class="col-2">
-                                        <button id="${datos.id}" type="button" class="btn btn-warning btnModificar " data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
-                                        <button id="${datos.id}" type="button" class="btn btn-danger btnEliminar " data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <button id="${datos.id}" type="button" class="btn btn-warning btnModificar m-1 " data-bs-toggle="modal" data-bs-target="#formModificarUsuario">Modificar</button>
+                                            <button id="${datos.id}" type="button" class="btn btn-danger btnEliminar m-1 " data-bs-toggle="modal" data-bs-target="#modalEliminarUsuario">Eliminar</button>
+                                        </div>
                                         </td>
                                     </tr> 
             `;
